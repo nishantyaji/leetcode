@@ -5,24 +5,19 @@ class MinDeletionsToMakeStringBalanced:
     def minimumDeletions(self, s: str) -> int:
         total_a = 0
         total_b = 0
-        b_left_list = []
-        a_right_list = []
+        min = 1e6
         for ch in s:
-            b_left_list.append(total_b)
-            a_right_list.append(-total_a)
+            temp = total_b - total_a
+            if temp < min:
+                min = temp
             if ch == 'a':
                 total_a = total_a + 1
             else:
                 total_b = total_b + 1
-        b_left_list.append(total_b)
-        a_right_list.append(-total_a)
+        if total_b  - total_a < min:
+            min = total_b - total_a
 
-        min = len(s) + 2
-        for i in range(0, len(s) + 1):
-            temp = b_left_list[i] + a_right_list[i] + total_a
-            if temp < min:
-                min = temp
-        return min
+        return min + total_a
 
 
 if __name__ == '__main__':
