@@ -1,5 +1,4 @@
 # Problem 916
-from calendar import c
 from typing import Dict, List
 
 
@@ -19,7 +18,6 @@ class WordSubsets:
         for word in words:
             result = self.convertToDict(word)
             for ch in result.keys():
-                print(ch, ':', result[ch])
                 if ch not in mergeResult.keys() or mergeResult[ch] < result[ch]:
                     mergeResult[ch] = result[ch]
 
