@@ -3,7 +3,6 @@ from typing import List
 
 
 class LongestIncreasingPathInAMatrix:
-    cache = {}
 
     def __init__(self):
         self.cache = {}
@@ -46,10 +45,6 @@ class LongestIncreasingPathInAMatrix:
             bottom_count = 1
 
         return max([left_count, right_count, top_count, bottom_count])
-
-    def copyTraverse(self, traversed: List[List[int]]) -> List[List[int]]:
-        copy = [row[:] for row in traversed]
-        return copy
 
     def cacheReturn(self, row: int, col: int, matrix: List[List[int]]) -> int:
         if row in self.cache.keys():
