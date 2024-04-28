@@ -6,6 +6,7 @@ class PreimageSizeOfFactorialZeroes:
             return 5
 
         approx = 4 * k
+        # The upper limit can be made tighter and optimized
         for i in range(approx, approx*2):
             if self.trailingZeroes(i) == k:
                 return 5
