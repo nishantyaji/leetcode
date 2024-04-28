@@ -28,6 +28,7 @@ class ContainsDuplicateIII:
         return False
 
     def delete(self, window: List[int], num: int):
+        #Can be optimized, especially the if conditions
         [low, high] = [0, len(window) - 1]
         req_idx = -1
         while low + 1 < high:
@@ -54,6 +55,7 @@ class ContainsDuplicateIII:
         return  window
 
     def insert(self, window: List[int], num: int):
+        #Can be optimized, especially the if conditions
         [low, high] = [0, len(window) - 1]
         req_idx = -1
 
