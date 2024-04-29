@@ -99,6 +99,7 @@ class SerializeAndDeserializeBinaryTree:
                 copy_dict[2 * index + 2] = right_node
                 q.append(2 * index + 2)
             del copy_dict[index]
+            #You can also delete my_dict[index]. Many inefficiencies can be ironed out
 
         return root
 
