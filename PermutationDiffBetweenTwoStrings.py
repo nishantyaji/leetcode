@@ -4,8 +4,6 @@ class PermutationDiffBetweenTwoStrings:
         res_list = [0] * 26
 
         for i in range(0, len(s)):
-            chs = s[i]
-            cht = t[i]
             orda = ord('a')
             res_list[ord(s[i]) - orda] = res_list[ord(s[i]) - orda] + i
             res_list[ord(t[i]) - orda] = res_list[ord(t[i]) - orda] - i
