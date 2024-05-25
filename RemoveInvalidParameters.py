@@ -1,7 +1,8 @@
 # Problem 301
 from typing import List
 
-
+# If I were to dedicate 10 minutes I will reduce the lines of code to half
+# I will revise and update soon
 class RemoveInvalidParameters:
     def __init__(self):
         self.max_pos = 0
