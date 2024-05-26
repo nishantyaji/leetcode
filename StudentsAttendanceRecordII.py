@@ -1,6 +1,11 @@
 # Problem 552
 import functools
 
+# Can replace cache with map or array
+# Should be quick in Java
+# Also many addition steps here can be reduced
+# since we know recurrence(n, 0) + recurrence(n, 1) = checkRecord(n)
+# I will work on trimming and greasing this code when I have time
 
 class StudentsAttendanceRecordII:
 
