@@ -40,8 +40,6 @@ class ParallelCoursesIII:
 
         dangling = (set(list(range(1, n+1))) - next_nodes) - prev_nodes
         root_nodes = [node_map[r] for r in list(next_nodes - prev_nodes)]
-        if len(root_nodes) == 0:
-            return max(time)
         return max([self.recurse(root) for root in root_nodes] + [time[i-1] for i in dangling])
 
     @functools.cache
