@@ -1,6 +1,8 @@
 # Problem 1404
 
 class NumStepsReduceBinaryToOne:
+    # Apparently Python implementation is easy since it supports huge integers
+    # Let me try this in Java
     def numSteps(self, s: str) -> int:
         num = 0
         for ch in s:
