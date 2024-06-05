@@ -11,7 +11,6 @@ class FindCommonCharacters:
             this_result = [0] * 26
             for ch in word:
                 this_result[ord(ch) - ord('a')] += 1
-            # please optimize the next 2 lines
             for i in range(26):
                 result[i] = min(result[i], this_result[i])
 
