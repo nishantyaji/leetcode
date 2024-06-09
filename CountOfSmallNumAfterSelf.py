@@ -30,6 +30,9 @@ class CountOfSmallNumAfterSelf:
         # Let's see if we can reduce this memory
         fenwick = BIT(max(nums))
         result = [0] * len(nums)
+        # we go in reverse order of nums
+        # because we are concerned about the
+        # effect of numbers to the right of any num
         for i in range(len(nums) - 1, -1, -1):
             fenwick.update(nums[i], 1)
             # number in range (0, nums[i]-1)
