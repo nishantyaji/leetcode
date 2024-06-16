@@ -1,8 +1,10 @@
-#Problem 238
+# Problem 238
+from typing import List
+
 
 class ProductOfArrayExceptSelf:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        
+
         nonzeroproduct = 1
         numzeroes = 0
 
@@ -23,5 +25,5 @@ class ProductOfArrayExceptSelf:
                     if numzeroes > 0:
                         res.append(0)
                     else:
-                        res.append((int)(nonzeroproduct/i))
+                        res.append((int)(nonzeroproduct / i))
         return res
