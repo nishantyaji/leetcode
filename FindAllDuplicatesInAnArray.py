@@ -1,4 +1,6 @@
 #Problem 442
+from typing import List
+
 
 class FindAllDuplicatesInAnArray:
     def findDuplicates(self, nums: List[int]) -> List[int]:
