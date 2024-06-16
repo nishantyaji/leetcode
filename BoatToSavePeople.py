@@ -1,4 +1,6 @@
 # Problem 881
+from typing import List
+
 
 class BoatToSavePeople:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
