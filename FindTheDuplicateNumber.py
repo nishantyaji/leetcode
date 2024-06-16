@@ -1,4 +1,6 @@
 #Problem 287
+from typing import List
+
 
 class FindTheDuplicateNumber:
     def findDuplicate(self, nums: List[int]) -> int:
