@@ -1,4 +1,6 @@
 # Problem 143
+from typing import Optional
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -22,8 +24,6 @@ class ReorderList:
         for node in mylist:
             node.next = None
             
-        halflimit = (int) (len(mylist) / 2)
-
         forward = 0
         backward = 0
 
