@@ -22,6 +22,6 @@ class FindNumOfDistinctColorsAmongBalls:
 
 
 if __name__ == '__main__':
-    b = BiweeklyContest131P3()
+    b = FindNumOfDistinctColorsAmongBalls()
     print(b.queryResults(4, [[1, 4], [2, 5], [1, 3], [3, 4]]))
     print(b.queryResults(4, [[0, 1], [1, 2], [2, 2], [3, 4], [4, 5]]))
