@@ -51,7 +51,7 @@ class MinWindowSubstring:
 
 
 if __name__ == '__main__':
-    m = MinimumWindowSubstring()
+    m = MinWindowSubstring()
     print(m.minWindow("ADOBECODEBANC", "ABC"))
     print(m.minWindow("a", "a"))
     print(m.minWindow("a", "aa"))
