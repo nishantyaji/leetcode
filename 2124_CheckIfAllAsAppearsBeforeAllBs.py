@@ -7,11 +7,11 @@ class CheckIfAllAsAppearsBeforeAllBs:
         bool_first_index_b = False
         for ch in s:
             if ch == 'a':
-                if bool_first_index_b == False:
+                if not bool_first_index_b:
                     continue
                 else:
                     return False
-            elif bool_first_index_b == False:
+            elif not bool_first_index_b:
                 bool_first_index_b = True
 
         return True
