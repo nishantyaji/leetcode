@@ -66,7 +66,6 @@ if __name__ == '__main__':
     print(c.countRangeSum([2147483647, -2147483648, -1, 0], -1, 0))
     print(c.countRangeSum([-2, 5, -1], -2, 2))
     # 3
-
     print(c.countRangeSum([0], 0, 0))
     # 1
     print(c.countRangeSum([-1, 1], 0, 0))
