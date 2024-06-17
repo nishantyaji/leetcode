@@ -1,11 +1,6 @@
 # Problem 1323
 
 
-from cmath import log10
-
-from numpy import result_type
-
-
 class Maximum69Number:
     def maximum69Number(self, num: int) -> int:
         resultStr = ""

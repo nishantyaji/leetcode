@@ -1,6 +1,6 @@
 # Problem 236
-#This is a very complicated solution. Forgive me. I know there is a more elegant solution.
-
+# This is a very complicated solution. Forgive me. I know there is a more elegant solution.
+# This script is ripe for revising
 from typing import List
 
 
