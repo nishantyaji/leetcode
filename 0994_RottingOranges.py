@@ -6,7 +6,7 @@ from typing import List
 class RottingOranges:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         rows, cols = len(grid), len(grid[0])
-
+        # the approach here is apparently called "multisource BFS"
         one_set = set()
         rotten = []
         for r in range(rows):
