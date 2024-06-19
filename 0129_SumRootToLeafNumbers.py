@@ -11,7 +11,7 @@ class TreeNode:
         self.right = right
 
 
-class Solution:
+class SumRootToLeafNumbers:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
