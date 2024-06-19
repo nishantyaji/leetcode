@@ -11,7 +11,7 @@ class TreeNode:
         self.right = right
 
 
-class Solution:
+class SmallestStringStartingFromLeaf:
     def smallestFromLeaf(self, root: Optional[TreeNode]) -> str:
         if root is None:
             return ""
