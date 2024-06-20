@@ -55,8 +55,6 @@ class NonNegativeIntsWithoutConsecutive1s:
         # for findInteger(101..) onwards say
         # we can do r2p(numdigits-1) + findInteger(bin_n[2:])
 
-
-
     @functools.cache
     def recurse2power(self, digits_from_end: int) -> int:
         if digits_from_end <= 0:
@@ -68,6 +66,20 @@ class NonNegativeIntsWithoutConsecutive1s:
             # 10, 01, 00
             return 3
         return self.recurse2power(digits_from_end - 2) + self.recurse2power(digits_from_end - 1)
+
+    def brute_force_find(self, n: int):
+        def check_valid(x: int):
+            bin_x = list(bin(x)[2:])
+
+            for i in range(len(bin_x) - 1):
+                if bin_x[i] == bin_x[i + 1] and bin_x[i] == '1':
+                    return False
+            return True
+
+        count = 0
+        for i in range(0, n + 1):
+            count += 1 if check_valid(i) else 0
+        return count
 
 
 if __name__ == '__main__':
@@ -94,4 +106,5 @@ if __name__ == '__main__':
     # 9
     print("172: (Expect: 55)", n.findIntegers(172))
     # 55
+    print(n.brute_force_find(172))
 
