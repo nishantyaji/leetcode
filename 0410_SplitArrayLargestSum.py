@@ -11,6 +11,9 @@ class SplitArrayLargestSum:
         # I got a hint that this is Binary Search.
         # Just the word "Binary Search" was enough to start a train of through.
         # And this is what I thought about ->
+
+        # To know the choice of low and high values
+        # consider the simple case of an array with just 2 elements and k = 2
         low, high = max(nums), sum(nums)
         while low <= high:
             mid = (low + high) // 2
