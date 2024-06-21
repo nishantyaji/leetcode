@@ -24,7 +24,7 @@ class FindFirstPlayerToWinKGamesInRow:
 
 
 if __name__ == '__main__':
-    b = BiweeklyContest132P2()
+    b = FindFirstPlayerToWinKGamesInRow()
     print(b.findWinningPlayer([1, 6, 17], 1))
     print(b.findWinningPlayer([16, 4, 7, 17], 562084119))
     print(b.findWinningPlayer([4, 2, 6, 3, 9], 2))
