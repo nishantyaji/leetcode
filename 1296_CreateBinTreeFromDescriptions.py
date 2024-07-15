@@ -17,11 +17,10 @@ class CreateBinTreeFromDescriptions:
             parent_set.add(parent)
             children_set.add(child)
             if parent not in mp:
-                parent_node = TreeNode(parent)
-                mp[parent] = parent_node
+                mp[parent] = TreeNode(parent)
             if child not in mp:
-                child_node = TreeNode(child)
-                mp[child] = child_node
+                mp[child] = TreeNode(child)
+
             if is_left == 1:
                 mp[parent].left = mp[child]
             else:
