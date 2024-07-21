@@ -1,4 +1,4 @@
-# Problem 3219
+# Problem 3218
 import operator
 from typing import List
 
@@ -24,6 +24,6 @@ class MinCostForCuttingCakeI:
 
 
 if __name__ == '__main__':
-    m = MinCostForCuttingCakeII()
+    m = MinCostForCuttingCakeI()
     print(m.minimumCost(3, 2, [1, 3], [5]))
     print(m.minimumCost(2, 2, [7], [4]))
