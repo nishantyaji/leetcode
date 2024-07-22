@@ -7,6 +7,12 @@ from typing import List
 
 class SubStrWithConcatAllWords:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
+        # There is a more efficient way where in we maintain map with
+        # the find/indices of the different words.
+        # and then in the window of length: len(words[0]) * len(words)
+        # we check if all words are in place
+        # Corner case when words are not unique
+
         words.sort()
         res = []
         if len(words[0]) == 1 and words[0] == words[-1]:
