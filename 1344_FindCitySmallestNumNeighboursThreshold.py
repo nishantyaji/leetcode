@@ -15,6 +15,7 @@ class FindCitySmallestNumNeighboursThreshold:
 
         for i in range(n):
             q, visited, dist, changed, present = [i], set(), {i: 0}, True, i
+            # The following while loop assumes a single connected component
             while len(visited) < n:
                 inner = [(k, v) for k, v in dist.items() if k not in visited]
                 if len(inner) == 0:
