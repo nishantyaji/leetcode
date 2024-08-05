@@ -1,4 +1,4 @@
-# 2053_KthDistinctStringInAnArray
+# Problem 2053
 from typing import List
 
 
