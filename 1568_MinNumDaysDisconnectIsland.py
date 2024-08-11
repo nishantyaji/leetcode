@@ -9,6 +9,8 @@ class MinNumDaysDisconnectIsland:
         isle = 1
         rows, cols = len(grid), len(grid[0])
 
+        # This is an easier version of Menger's Theorem
+
         def get_neighbours(r: int, c: int, visited: int):
             neighbours = []
             if r > 0 and grid[r - 1][c] == isle:
