@@ -6,6 +6,11 @@ from typing import List
 
 class WalkingRobotSimulation:
 
+    """
+    Recommend Binary search solution shared here:
+    https://leetcode.com/problems/walking-robot-simulation/solutions/5736137/binary-search-for-finding-obstacles/?envType=daily-question&envId=2024-09-04
+    """
+
     def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
         turnd = collections.defaultdict(dict)
         turnd[(0, 1)][-2] = -1, 0
