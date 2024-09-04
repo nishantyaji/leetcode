@@ -20,35 +20,39 @@ class WalkingRobotSimulation:
         def turn(val: int, dir: tuple) -> tuple:
             return turnd[dir][val]
 
-        obs_x_y2 = collections.defaultdict(list)
-        obs_y_x2 = collections.defaultdict(list)
         obsset = set()
         for obs in obstacles:
             if obs:
                 obsset.add((obs[0], obs[1]))
-                obs_x_y2[obs[0]].append(obs[1])
-                obs_y_x2[obs[1]].append(obs[0])
 
         def move(pres: tuple, dir: tuple, val: int):
             x, y = copy.deepcopy(pres)
             if dir[0] != 0:
                 if dir[0] < 0:
+                    # instead of a linear scan
+                    # we can use a binary search
                     for _ in range(val):
                         if (x - 1, y) in obsset:
                             return x, y
                         x -= 1
                 else:
+                    # instead of a linear scan
+                    # we can use a binary search
                     for _ in range(val):
                         if (x + 1, y) in obsset:
                             return x, y
                         x += 1
             else:
                 if dir[1] < 0:
+                    # instead of a linear scan
+                    # we can use a binary search
                     for _ in range(val):
                         if (x, y - 1) in obsset:
                             return x, y
                         y -= 1
                 else:
+                    # instead of a linear scan
+                    # we can use a binary search
                     for _ in range(val):
                         if (x, y + 1) in obsset:
                             return x, y
