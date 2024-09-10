@@ -19,7 +19,7 @@ class FindKeyOfNums:
 
 
 if __name__ == '__main__':
-    b = BiweeklyContest138P1()
+    b = FindKeyOfNums()
     print(b.generateKey(1, 10, 1000))
     print(b.generateKey(987, 879, 798))
     print(b.generateKey(1, 2, 3))
