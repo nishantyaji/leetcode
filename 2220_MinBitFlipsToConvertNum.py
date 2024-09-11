@@ -8,6 +8,7 @@ class MinBitFlipsToConvertNum:
         return self.count_one_bits(start ^ goal)
 
     def count_one_bits(self, num: int) -> int:
+        # This is sub-optimal. Better ways of doing this
         if num == 0 or num == 1:
             return num
         digits = int(math.log2(num)) + 1
