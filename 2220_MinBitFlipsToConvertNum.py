@@ -9,6 +9,7 @@ class MinBitFlipsToConvertNum:
 
     def count_one_bits(self, num: int) -> int:
         # This is sub-optimal. Better ways of doing this
+        # 1 better way is : return sum(list(map(int, bin(num)[2:])))
         if num == 0 or num == 1:
             return num
         digits = int(math.log2(num)) + 1
