@@ -4,3 +4,4 @@ contestbacklog/**
 tools/**
 .vscode
 .idea/**
+generator/**
