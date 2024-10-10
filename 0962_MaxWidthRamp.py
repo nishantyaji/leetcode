@@ -45,6 +45,11 @@ class SegmentTree:
 class MaxWidthRamp:
 
     def maxWidthRamp(self, nums: List[int]) -> int:
+        # This approach uses the segment tree approach.
+        # This approach has the time complexity of O(nlogn)
+        # There are better approaches i.e. time complexity O(n)
+        # Refer: https://leetcode.com/problems/maximum-width-ramp/editorial/?envType=daily-question&envId=2024-10-10
+        # There are videos on youtube with the solution in O(n)
         co_map = {x: i for i, x in enumerate(sorted(set(nums)))}
         st = SegmentTree(len(co_map))
         res = 0
