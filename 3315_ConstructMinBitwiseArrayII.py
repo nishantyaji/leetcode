@@ -24,6 +24,6 @@ class ConstructMinBitwiseArrayII:
 
 
 if __name__ == '__main__':
-    c = ConstructMinBitwiseArrayI()
+    c = ConstructMinBitwiseArrayII()
     print(c.minBitwiseArray([2, 3, 5, 7]))
     print(c.minBitwiseArray([11, 13, 31]))
