@@ -1,5 +1,4 @@
 # Problem 1643
-import functools
 import math
 from typing import List
 
@@ -9,7 +8,6 @@ class KthSmallestInstruction:
         running = self.recurse(destination[0], destination[1], k)
         return "".join(running)
 
-    @functools.cache
     def recurse(self, r: int, c: int, k: int):
         if c == 0:
             return ["V"] * r
