@@ -16,8 +16,7 @@ class KthSmallestInstruction:
         limit = math.comb(r + c - 1, c - 1)
         # after the limit, the leading letter will be "V"
         if k > limit:
-            k -= limit
-            return ["V"] + self.recurse(r - 1, c, k)
+            return ["V"] + self.recurse(r - 1, c, k - limit)
         else:
             return ["H"] + self.recurse(r, c - 1, k)
 
