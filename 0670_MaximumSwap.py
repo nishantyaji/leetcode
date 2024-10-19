@@ -1,4 +1,5 @@
 # Problem 670
+import collections
 
 
 class MaximumSwap:
@@ -21,6 +22,25 @@ class MaximumSwap:
     def swap(self, s: str, first: int, second: int):
         return int(s[0:first] + s[second] + s[first + 1:second] + s[first] + s[second + 1:])
 
+    def maximumSwap2(self, num: int) -> int:
+        # Another method
+        num_str = list(str(num))
+        digits = list(map(int, num_str))
+        digits.sort(reverse=True)
+
+        my_dict = collections.defaultdict(list)
+        for index, c in enumerate(num_str):
+            my_dict[int(c)].append(index)
+
+        for i in range(len(num_str) - 1):
+            if digits[i] != int(num_str[i]):
+                num_str[my_dict[digits[i]][-1]] = num_str[i]
+                num_str[i] = str(digits[i])
+                break
+            else:
+                my_dict[digits[i]] = my_dict[digits[i]][1:]
+
+        return int("".join(num_str))
 
 if __name__ == '__main__':
     m = MaximumSwap()
