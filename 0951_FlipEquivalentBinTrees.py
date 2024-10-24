@@ -16,13 +16,11 @@ class FlipEquivalentBinTrees:
             return True
         if (not root1 and root2) or (not root2 and root1) or root1.val != root2.val:
             return False
-        root1_ch = [] if not root1 else [x for x in [root1.left, root1.right] if x]
-        root2_ch = [] if not root2 else [x for x in [root2.left, root2.right] if x]
+        root1_ch = sorted([x for x in [root1.left, root1.right] if x], key=lambda x: x.val)
+        root2_ch = sorted([x for x in [root2.left, root2.right] if x], key=lambda x: x.val)
         if len(root1_ch) != len(root2_ch):
             return False
 
-        root1_ch.sort(key=lambda x: x.val)
-        root2_ch.sort(key=lambda x: x.val)
         res = True
         for i in range(len(root1_ch)):
             res = res and self.flipEquiv(root1_ch[i], root2_ch[i])
