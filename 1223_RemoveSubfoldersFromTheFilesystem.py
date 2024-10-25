@@ -63,6 +63,7 @@ class RemoveSubfoldersFromTheFilesystem:
         root.traverse([], res)
         return res
 
+
 if __name__ == '__main__':
     r = RemoveSubfoldersFromTheFilesystem()
-    print(r.removeSubfolders(["/a","/a/b","/c/d","/c/d/e","/c/f"]))
+    print(r.removeSubfolders(["/a", "/a/b", "/c/d", "/c/d/e", "/c/f"]))
