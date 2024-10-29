@@ -9,6 +9,8 @@ class LongestSquareStreakInArray:
         mp = collections.defaultdict(int)
         for n in nums:
             mp[n] = 1
+        # Sorting is not required. you can do 2-passes over nums.
+        # I'll edit it some other time.
         nums.sort()
         mx = -1
         for i in range(len(nums) - 1):
