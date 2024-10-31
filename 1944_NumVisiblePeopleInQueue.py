@@ -4,18 +4,16 @@ from typing import List
 
 class NumVisiblePeopleInQueue:
     def canSeePersonsCount(self, heights: List[int]) -> List[int]:
-        stack, rev_vals = [], []
+        stack, res = [], [0] * len(heights)
         for i in range(len(heights) - 1, - 1, -1):
-            temp = 0
             while stack and stack[-1] < heights[i]:
                 stack.pop()
-                temp += 1
+                res[i] += 1
             if stack:
                 # you can still see the stack element, so add
-                temp += 1
+                res[i] += 1
             stack.append(heights[i])
-            rev_vals.append(temp)
-        return rev_vals[::-1]
+        return res
 
 
 if __name__ == '__main__':
