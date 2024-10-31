@@ -9,9 +9,7 @@ class NumVisiblePeopleInQueue:
             while stack and stack[-1] < heights[i]:
                 stack.pop()
                 res[i] += 1
-            if stack:
-                # you can still see the stack element, so add
-                res[i] += 1
+            res[i] += (1 if stack else 0)  # you can still see the stack element, so add
             stack.append(heights[i])
         return res
 
