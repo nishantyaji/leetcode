@@ -19,7 +19,7 @@ class DeleteCharsToMakeFancyString:
             result = result + ch
         return result
 
-    def makeFancyString(self, s: str) -> str:
+    def makeFancyString2(self, s: str) -> str:
         # Code I wrote in Oct 2024
         def fn(a, b):
             if len(a) >= 2 and a[-1] == a[-2] and a[-1] == b:
@@ -29,6 +29,12 @@ class DeleteCharsToMakeFancyString:
         # This solution can be compressed to one
         # it is a tradeoff between brevity and clarity
         return functools.reduce(fn, s, "")
+
+    def makeFancyString3(self, s: str) -> str:
+        # Code I wrote in Oct 2024
+        # One liner ugly little thing
+        return "".join(list(map(lambda x: x[1], list(filter(lambda t: not (t[0] >= 2 and t[1] == s[t[0] - 1] and t[1] == s[t[0] - 2]), enumerate(s))))))
+
 
 if __name__ == '__main__':
     d = DeleteCharsToMakeFancyString()
