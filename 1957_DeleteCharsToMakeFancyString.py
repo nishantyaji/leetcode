@@ -1,8 +1,10 @@
 # Problem 1957
+import functools
 
 
 class DeleteCharsToMakeFancyString:
     def makeFancyString(self, s: str) -> str:
+        # Code I wrote in June 2022
         cumNum = 1
         prevChar = "-"
         result = ""
@@ -17,6 +19,16 @@ class DeleteCharsToMakeFancyString:
             result = result + ch
         return result
 
+    def makeFancyString(self, s: str) -> str:
+        # Code I wrote in Oct 2024
+        def fn(a, b):
+            if len(a) >= 2 and a[-1] == a[-2] and a[-1] == b:
+                return a
+            else:
+                return a + b
+        # This solution can be compressed to one
+        # it is a tradeoff between brevity and clarity
+        return functools.reduce(fn, s, "")
 
 if __name__ == '__main__':
     d = DeleteCharsToMakeFancyString()
