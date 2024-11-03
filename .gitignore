@@ -1,7 +1,6 @@
 incomplete/**
 contest/**
 contestbacklog/**
-tools/**
 .vscode
 .idea/**
 generator/**
