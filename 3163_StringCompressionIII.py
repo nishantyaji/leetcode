@@ -19,6 +19,24 @@ class StringCompressionIII:
             result += (str(count) + prev)
         return result
 
+    def compressedString(self, word: str) -> str:
+        res, prev, cnt = [], "~", 0
+
+        def append_(cnt, prev):
+            q, r = divmod(cnt, 9)
+            temp = ["9" + prev] * q
+            if r:
+                temp += [str(r), prev]
+            return temp
+
+        for c in word:
+            if prev != c and prev != "~":
+                res += append_(cnt, prev)
+                cnt = 0
+            prev = c
+            cnt += 1
+        res += append_(cnt, prev)
+        return "".join(res)
 
 if __name__ == '__main__':
     w = StringCompressionIII()
