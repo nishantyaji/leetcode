@@ -11,9 +11,7 @@ class TakeKOfEachCharFromLeftRight:
         def val(ch):
             return ord(ch) - ord('a')
 
-        vals = [0] * 3
-        for_l = sys.maxsize
-
+        vals, for_l, back_l = [0] * 3, sys.maxsize, sys.maxsize
         for i in range(len(s)):
             vals[val(s[i])] += 1
             if vals[0] >= k and vals[1] >= k and vals[2] >= k:
@@ -24,7 +22,6 @@ class TakeKOfEachCharFromLeftRight:
             return -1
 
         vals = [0] * 3
-        back_l = sys.maxsize
         for i in range(len(s) - 1, -1, -1):
             vals[val(s[i])] += 1
             if vals[0] >= k and vals[1] >= k and vals[2] >= k:
@@ -32,17 +29,15 @@ class TakeKOfEachCharFromLeftRight:
                 break
 
         min_len = min(len(s) - back_l, for_l + 1)
-        left, right = 0, -1
+        total_iter = len(s) - back_l + for_l + 1
+        left, right = back_l, back_l-1
         vals = [0] * 3
         # Unclean code
-        # need to reduce the for loops
-        for _ in range(2 * len(s)):
+        for _ in range(total_iter):
             right = (right + 1) % len(s)
             vals[val(s[right])] += 1
             while vals[0] >= k and vals[1] >= k and vals[2] >= k:
-                if right < left:
-                    this_len = right + len(s) - left + 1
-                    min_len = min(min_len, this_len)
+                min_len = min(min_len, right + len(s) - left + 1)
                 vals[val(s[left])] -= 1
                 left = (left + 1) % len(s)
 
