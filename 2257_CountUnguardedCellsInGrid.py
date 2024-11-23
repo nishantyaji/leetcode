@@ -10,6 +10,7 @@ class CountUnguardedCellsInGrid:
         # Even though my previous original solution was with the same complexity
         # It was found to be very slow
         # Had to be unblocked by a hint
+
         for [r, c] in walls:
             grid[r][c] = 2
 
