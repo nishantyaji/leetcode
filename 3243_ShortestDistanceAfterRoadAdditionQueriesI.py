@@ -1,6 +1,4 @@
 # Problem 3243
-import copy
-import heapq
 from typing import List
 
 
