@@ -7,6 +7,8 @@ Also refer the 0-1 BFS article in codeforces
 https://codeforces.com/blog/entry/22276
 
 """
+from collections import deque
+
 
 class Solution:
     # Directions for movement: right, left, down, up
