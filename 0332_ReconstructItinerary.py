@@ -12,7 +12,7 @@ class ReconstructItinerary:
             old_adj[t[0]].append(t[1])
         adj = collections.defaultdict(collections.deque)
         for k, v in old_adj.items():
-            v.sort()
+            v.sort()  # sorting to maintain lexicographic order
             for vv in v:
                 adj[k].append(vv)
 
