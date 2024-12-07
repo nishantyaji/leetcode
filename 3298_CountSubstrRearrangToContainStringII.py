@@ -1,22 +1,12 @@
 # Problem 3298
-import collections
 from collections import Counter
 
 
 class CountSubstrRearrangToContainStringII:
     def validSubstringCount(self, word1: str, word2: str) -> int:
         l1, l2 = len(word1), len(word2)
-        all_cntr, cntr, ref_cntr = Counter(word1), Counter(), Counter(word2)
+        cntr, ref_cntr = Counter(), Counter(word2)
         cntr2_len = len(ref_cntr)
-        if not self.is_subset(all_cntr, ref_cntr):
-            return 0
-
-        rev_cntr = collections.Counter()
-        rev = word1[::-1]
-        i = 0
-        while not self.is_subset(rev_cntr, ref_cntr):
-            rev_cntr[rev[i]] += 1
-            i += 1
 
         """
         We use a 2-pointer (sliding window approach)
@@ -33,7 +23,7 @@ class CountSubstrRearrangToContainStringII:
         This reduces the complexity from O(26) to O(kn) where k ~1
         """
 
-        left_limit = l1 - i
+        left_limit = l1 - cntr2_len + 1
         key_count = 0
         res, prev_left, left, right = 0, 0, 0, 0
         while left <= left_limit:
@@ -56,14 +46,18 @@ class CountSubstrRearrangToContainStringII:
                 break
         return res
 
+
+"""
+
     def is_subset(self, superset: dict, subset: dict):
         for k, v in subset.items():
             if k not in superset or superset[k] < v:
                 return False
         return True
 
+"""
 if __name__ == '__main__':
     c = CountSubstrRearrangToContainStringII()
     print(c.validSubstringCount("abcabc", "abc"))
     print(c.validSubstringCount("bcca", "abc"))
-    print(c.validSubstringCount( "abcabc", "aaabc"))
+    print(c.validSubstringCount("abcabc", "aaabc"))
