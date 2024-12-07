@@ -7,6 +7,9 @@ from typing import List
 class KokoEatingBananas:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         piles.sort()
+        # In fact there is no need to sort depending on the test cases
+        # O(nlogn) is the sorting alog
+        # Without sorting the complexity is O(nlogh)
 
         s, e = 1, max(piles)
         res = -1
