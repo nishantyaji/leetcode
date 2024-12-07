@@ -46,6 +46,11 @@ class CountSubstrRearrangToContainStringII:
                 break
         return res
 
+    """
+    Check solution
+    https://leetcode.com/problems/count-substrings-that-can-be-rearranged-to-contain-a-string-ii/solutions/5820934/python3-hash-table-sliding-window-detailed-explanation/
+    """
+
 
 """
 
