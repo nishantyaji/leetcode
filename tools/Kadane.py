@@ -1,7 +1,7 @@
 import sys
 
 
-def kadande_impl(x):
+def kadane_impl(x):
     cur_max_sum, max_sum = -sys.maxsize, -sys.maxsize
     for y in x:
         cur_max_sum = max(cur_max_sum + y, y)
@@ -10,4 +10,4 @@ def kadande_impl(x):
 
 
 arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-print(kadande_impl(arr))
+print(kadane_impl(arr))
