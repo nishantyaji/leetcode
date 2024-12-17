@@ -35,7 +35,7 @@ class ConstructStringWithRepeatLimit:
 
 
 def repeatLimitedStringSlow(self, s: str, repeatLimit: int) -> str:
-    # this is slow since we interate over the key of the dictionary
+    # this is slow since we iterate over the key of the dictionary
     # (which might be upto 26 in number)
     cntr = {x: 0 for x in "zyxwvutsrqponmlkjihgfedcba"}
     for c in s:
