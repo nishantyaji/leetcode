@@ -3,7 +3,23 @@ from typing import List
 
 
 class FinalPricesWithSpecialDiscountInShop:
+
     def finalPrices(self, prices: List[int]) -> List[int]:
+        # O(n) using stack
+        n = len(prices)
+        res = [0] * n
+        stack = []
+        for i in range(n - 1, -1, -1):
+            res[i] = prices[i]
+            if stack:
+                while stack and stack[-1] > prices[i]:
+                    stack.pop()
+                if stack:
+                    res[i] = prices[i] - stack[-1]
+            stack.append(prices[i])
+        return res
+
+    def finalPricesSlow(self, prices: List[int]) -> List[int]:
         # O(n^2) time complexity
         n = len(prices)
         res = [0] * n
