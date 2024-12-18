@@ -15,25 +15,25 @@ class RecoverTreeFromPreorderTraversal:
     def recoverFromPreorder(self, traversal: str) -> Optional[TreeNode]:
         if not traversal:
             return None
-        my_dict = {}
-        head, prev = None, None
-        d_count = 0
-        depth = 0
-        run_str = ""
+        my_dict, head_arr, d_count, depth, run_str = {}, [None], 0, 0, ""
+
+        def assign(node, dep):
+            if not head_arr[0]:
+                head_arr[0] = node
+                my_dict[0] = node
+            else:
+                par = my_dict[dep - 1]
+                if not par.left:
+                    par.left = node
+                else:
+                    par.right = node
+                my_dict[dep] = node
+
         for x in traversal:
             if x == "-":
                 if d_count == 0:
                     temp_node = TreeNode(int(run_str))
-                    if not head:
-                        head = temp_node
-                        my_dict[0] = temp_node
-                    else:
-                        par = my_dict[depth - 1]
-                        if not par.left:
-                            par.left = temp_node
-                        else:
-                            par.right = temp_node
-                        my_dict[depth] = temp_node
+                    assign(temp_node, depth)
                 run_str = ""
                 d_count += 1
             else:
@@ -43,17 +43,8 @@ class RecoverTreeFromPreorderTraversal:
                 run_str += x
 
         temp_node = TreeNode(int(run_str))
-        if not head:
-            head = temp_node
-            my_dict[0] = temp_node
-        else:
-            par = my_dict[depth - 1]
-            if not par.left:
-                par.left = temp_node
-            else:
-                par.right = temp_node
-            my_dict[depth] = temp_node
-        return head
+        assign(temp_node, depth)
+        return head_arr[0]
 
 
 if __name__ == '__main__':
