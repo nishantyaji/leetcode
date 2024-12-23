@@ -22,7 +22,6 @@ class MinNumOpsToSortBinTreeByLevel:
         res = 0
         for k, v in mp.items():
             res += self.count_inversions(v)
-            print(k, ";", res)
         return res
 
     def recurse(self, node, mp, depth):
