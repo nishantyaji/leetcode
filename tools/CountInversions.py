@@ -1,6 +1,7 @@
 import copy
 
-def count_inversions(self, nums):
+
+def count_inversions(nums):
     # note to self : formulate a better algo
     nums_copy = copy.deepcopy(nums)
     nums_copy.sort()
@@ -19,5 +20,5 @@ def count_inversions(self, nums):
     return res
 
 
-
 arr = [7, 6, 8, 5]
+print(count_inversions(arr))
