@@ -1,33 +1,25 @@
 # Problem 494
+import functools
 import itertools
 from typing import List
 
 
 class TargetSum:
 
-    def __init__(self):
-        self.nums = []
-        self.suf_sum = []
-        self.res = 0
-
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        self.res = 0
-        self.nums = nums
-        self.suf_sum = list(reversed(list(itertools.accumulate(reversed(nums)))))
-        self.recurse(0, 0, target)
-        return self.res
+        suf_sum = list(reversed(list(itertools.accumulate(reversed(nums)))))
 
-    def recurse(self, run_sum: int, index_on: int, target: int):
-        # We can memoize this
-        if index_on == len(self.nums):
-            self.res += (1 if run_sum == target else 0)
-            return
-        suf = self.suf_sum[index_on]
-        if run_sum - suf > target or run_sum + suf < target:
-            return
+        @functools.cache
+        def recurse(run: int, index: int) -> int:
+            if index == len(nums):
+                return 1 if run == target else 0
+            if run - suf_sum[index] > target or run + suf_sum[index] < target:
+                return 0
+            plus = recurse(run + nums[index], index + 1)
+            minus = recurse(run - nums[index], index + 1)
+            return plus + minus
 
-        self.recurse(run_sum + self.nums[index_on], index_on + 1, target)
-        self.recurse(run_sum - self.nums[index_on], index_on + 1, target)
+        return recurse(0, 0)
 
 
 if __name__ == '__main__':
