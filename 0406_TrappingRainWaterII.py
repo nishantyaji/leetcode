@@ -7,6 +7,10 @@ class TrappingRainWaterII:
 
     def trapRainWater(self, heightMap: List[List[int]]) -> int:
         # Optimize the flow.
+        # In this below approach I am using Heap + BFS on the interiors. It is slow but it passes
+        # Using Heap + BFS on the boundary is quicker. Recommended
+        # https://leetcode.com/problems/trapping-rain-water-ii/description/comments/2814768
+        # https://leetcode.com/problems/trapping-rain-water-ii/editorial/?envType=daily-question&envId=2025-01-19
         pq = []
         for i in range(1, len(heightMap) - 1):
             for j in range(1, len(heightMap[0]) - 1):
