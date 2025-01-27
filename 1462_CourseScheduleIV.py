@@ -14,10 +14,8 @@ class CourseScheduleIV:
             for i in range(numCourses):  # source node
                 for j in range(numCourses):  # destination node
                     dp[i][j] = dp[i][k] & dp[k][j] or dp[i][j]
-        res = []
-        for u, v in queries:
-            res.append(dp[u][v])
-        return res
+        return [dp[u][v] for u,v in queries]
+
 
 
 if __name__ == '__main__':
