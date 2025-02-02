@@ -3,7 +3,20 @@ from typing import List
 
 
 class CheckIfArrayIsSortedAndRotated:
+
     def check(self, nums: List[int]) -> bool:
+        n, first = len(nums), -1
+        for i in range(n):
+            if nums[(i - 1) % n] > nums[i]:
+                first = i
+                break
+        nums = nums + nums
+        for i in range(first, first + n - 1):
+            if nums[i] > nums[i + 1]:
+                return False
+        return True
+
+    def check_slow(self, nums: List[int]) -> bool:
         min_idx = 0
         if nums[0] >= nums[-1]:
             prev = nums[0]
