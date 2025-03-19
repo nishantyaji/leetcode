@@ -24,6 +24,15 @@ class MinOpsToMakeBinArrayElemsEqOneI:
 
     # -------------------------------------------------------
 
+    def minOperations_curt(self, nums: List[int]) -> int:  # code golf
+        dq, res = collections.deque([nums[0], nums[1]]), 0
+        for i in range(2, len(nums)):
+            dq.append(nums[i])
+            if dq[0] == 0:
+                res, dq[1], dq[2] = res + 1, 1 ^ dq[1], 1 ^ dq[2]
+            dq.popleft()
+        return res if dq[0] == 1 and dq[1] == 1 else -1
+
     def minOperations(self, nums: List[int]) -> int:
         return self.minKBitFlips(nums, 3)
 
