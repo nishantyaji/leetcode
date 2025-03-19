@@ -1,12 +1,33 @@
 # Problem 3191
+import collections
 from typing import List
 
 
 class MinOpsToMakeBinArrayElemsEqOneI:
+
+    def minOperations(self, nums: List[int]) -> int:
+        # My new approach when I retried this after many months
+        dq = collections.deque()
+        dq.append(nums[0])
+        dq.append(nums[1])
+
+        res = 0
+        for i in range(2, len(nums)):
+            dq.append(nums[i])
+            if dq[0] == 0:
+                res += 1
+                dq[1] = 1 ^ dq[1]
+                dq[2] = 1 ^ dq[2]
+            dq.popleft()
+
+        return res if dq[0] == 1 and dq[1] == 1 else -1
+
+    # -------------------------------------------------------
+
     def minOperations(self, nums: List[int]) -> int:
         return self.minKBitFlips(nums, 3)
 
-    def minKBitFlips(self, nums: List[int], k: int) -> int:
+    def minKBitFlips_before(self, nums: List[int], k: int) -> int:
         # My second approach which passed the muster
         # We go on flipping ints from left to right
         if k == 1:
