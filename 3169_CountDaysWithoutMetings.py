@@ -7,6 +7,7 @@ class CountDaysWithoutMeetings:
     def countDays(self, days: int, meetings: List[List[int]]) -> int:
         meetings = [(m[0], m[1]) for m in meetings]
         meetings.sort(key=lambda x: (x[0], -x[1]))
+
         start, res = 0, 0
         for i, (s, e) in enumerate(meetings):
             if s > start:
