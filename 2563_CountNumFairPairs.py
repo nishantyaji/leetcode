@@ -21,6 +21,24 @@ class CountNumFairPairs:
                     res -= 1
         return res // 2
 
+    def countFairPairs_later_attempt(self, nums: List[int], lower: int, upper: int) -> int:
+        mn = min(nums)
+        if mn < 0:
+            nums = [n + -mn for n in nums]
+            lower += 2 * (-mn)
+            upper += 2 * (-mn)
+
+        nums.sort()
+        mid = max(upper // 2, (lower + upper) // 2)
+        mid_idx = bisect.bisect_right(nums, mid)
+        res = 0
+        for i in range(0, mid_idx):
+            idx1 = bisect.bisect_right(nums, upper - nums[i])
+            idx2 = max(i + 1, bisect.bisect_left(nums, lower - nums[i]))
+            if idx1 >= idx2:
+                res += (idx1 - idx2)
+        return res
+
 
 if __name__ == '__main__':
     c = CountNumFairPairs()
