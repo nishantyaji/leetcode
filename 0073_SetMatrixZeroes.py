@@ -1,4 +1,4 @@
-# Problem 75
+# Problem 73
 from typing import List
 
 
