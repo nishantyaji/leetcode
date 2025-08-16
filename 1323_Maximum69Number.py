@@ -1,4 +1,5 @@
 # Problem 1323
+import math
 
 
 class Maximum69Number:
@@ -13,6 +14,14 @@ class Maximum69Number:
                 first = character
             resultStr = resultStr + first
         return int(resultStr)
+
+    def maximum69Number_fast(self, num: int) -> int:
+        digits = math.floor(math.log10(num)) + 1
+        for i in range(digits - 1, -1, -1):
+            q, r = divmod(num, pow(10, i))
+            if q % 10 == 6:
+                return num + pow(10, i) * 3
+        return num
 
 
 if __name__ == '__main__':
