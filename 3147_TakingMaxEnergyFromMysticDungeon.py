@@ -1,5 +1,5 @@
 # Problem 3147
-
+import sys
 from typing import List
 
 
@@ -18,6 +18,19 @@ class TakingMaxEnergyFromMysticDungeon:
 
         return max_all
 
+    def maximumEnergy2(self, energy: List[int], k: int) -> int:
+        mx = -sys.maxsize
+        dp = [-sys.maxsize] * k
+        n = len(energy)
+        for i in range(n - 1, -1, -1):
+            mod = i % k
+
+            if dp[mod] == -sys.maxsize:
+                dp[mod] = energy[i]
+            else:
+                dp[mod] += energy[i]
+            mx = max(mx, dp[mod])
+        return mx
 
 if __name__ == '__main__':
     w = TakingMaxEnergyFromMysticDungeon()
