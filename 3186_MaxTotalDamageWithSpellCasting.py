@@ -1,10 +1,26 @@
 # Problem 3186
-
+import collections
 from typing import List
 
 
 class MaxTotalDamageWithSpellCasting:
+
     def maximumTotalDamage(self, power: List[int]) -> int:
+        power.sort()
+        if len(power) == 1:
+            return power[0]
+        mp = collections.Counter(power)
+        keys = sorted(mp.keys())
+        dp = collections.defaultdict(int)
+        for idx, key in enumerate(keys):
+            temp, found = 0, False
+            for i in range(1, 6):
+                if idx - i >= 0 and keys[idx - i] < key - 2:
+                    temp = max(temp, dp[keys[idx - i]])
+            dp[key] = mp[key] * key + temp
+        return max(dp.values())
+
+    def maximumTotalDamage2(self, power: List[int]) -> int:
         if len(power) == 1:
             return power[0]
 
@@ -42,6 +58,7 @@ if __name__ == '__main__':
     w = MaxTotalDamageWithSpellCasting()
     print(w.maximumTotalDamage([5, 9, 2, 10, 2, 7, 10, 9, 3, 8]))
     print(w.maximumTotalDamage([2, 9, 10]))
+    print(w.maximumTotalDamage([1, 1, 1, 1, 1, 1]))
     print(w.maximumTotalDamage([7, 1, 6, 6]))
     print(w.maximumTotalDamage([1, 1, 3, 4]))
     print(w.maximumTotalDamage([10]))
