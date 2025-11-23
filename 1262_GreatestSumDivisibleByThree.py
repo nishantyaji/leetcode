@@ -36,6 +36,42 @@ class GreatestSumDivisibleByThree:
                     total -= (min11 + min12)
         return total
 
+    def maxSumDivThree2(self, nums: List[int]) -> int:
+        res = 0
+        ones = []
+        twos = []
+        nums.sort()
+        for n in nums:
+            if n % 3 == 0:
+                res += n
+            elif n % 3 == 1:
+                ones.append(n)
+            else:
+                twos.append(n)
+        overall = sum(nums)
+        if overall % 3 == 0:
+            return overall
+        if overall % 3 == 1:
+            if not ones:
+                return overall - twos[0] - twos[1]
+            if not twos:
+                return overall - ones[0]
+            else:
+                if len(twos) <= 1 or ones[0] < twos[0] + twos[1]:
+                    return overall - ones[0]
+                else:
+                    return overall - twos[0] - twos[1]
+        else:
+            if not ones:
+                return overall - twos[0]
+            if not twos:
+                return overall - ones[0] - ones[1]
+            else:
+
+                if len(ones) <= 1 or ones[0] + ones[1] > twos[0]:
+                    return overall - twos[0]
+                else:
+                    return overall - ones[0] - ones[1]
 
 if __name__ == '__main__':
     g = GreatestSumDivisibleByThree()
