@@ -1,4 +1,5 @@
 # Problem 66
+import functools
 from typing import List
 
 
@@ -23,6 +24,9 @@ class PlusOne:
             result.append(carry)
         result.reverse()
         return result
+
+    def plusOne_oneline(self, digits: List[int]) -> List[int]:
+        return list(map(int, list(str(functools.reduce(lambda x, y: 10 * x + y, digits) + 1))))
 
 
 if __name__ == '__main__':
