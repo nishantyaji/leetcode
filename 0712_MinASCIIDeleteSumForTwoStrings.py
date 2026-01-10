@@ -17,7 +17,4 @@ class MinASCIIDeleteSumForTwoStrings:
 
     @functools.cache
     def value(self, s: str):
-        res = 0
-        for c in s:
-            res += ord(c)
-        return res
+        return sum([ord(c) for c in s])
