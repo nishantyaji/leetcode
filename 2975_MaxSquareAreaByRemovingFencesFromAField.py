@@ -1,4 +1,6 @@
 # Problem 2975
+from typing import List
+
 
 class MaxSquareAreaByRemovingFencesFromAField:
     def maximizeSquareArea(self, m: int, n: int, hFences: List[int], vFences: List[int]) -> int:
